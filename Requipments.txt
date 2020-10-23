@@ -1,0 +1,10 @@
+Python and Ruby interpreter,
+Pip(Python),RubyGem(Ruby)
+
+Python Library:
+-tkinter
+-requests
+-bs4
+
+Exe:
+-pyinstaller

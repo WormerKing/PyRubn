@@ -15,7 +15,6 @@ import os,sys
 import requests
 from bs4 import BeautifulSoup
 import socket
-from threading import Thread
 
 def linuxorwin(*args):
     git = os.path.join(os.getcwd(),*args)
