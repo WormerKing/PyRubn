@@ -12,9 +12,23 @@ Coding by:Wormer
 import tkinter as tk,tkinter.messagebox
 from tkinter import filedialog as fd
 import os,sys
-import requests
-from bs4 import BeautifulSoup
 import socket
+
+if os.name == "posix":
+    sys.path.insert(0,"/modules/requests")
+    import requests
+
+    sys.path.insert(0,"/modules/bs4")
+    from bs4 import BeautifulSoup
+
+elif os.name == "nt":
+    sys.path.insert(0,"\\modules\\requests")
+    import requests
+
+    sys.path.insert(0,"\\modules\\bs4")
+    from bs4 import BeautifulSoup
+
+
 
 def linuxorwin(*args):
     git = os.path.join(os.getcwd(),*args)
