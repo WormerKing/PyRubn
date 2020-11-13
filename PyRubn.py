@@ -7,20 +7,23 @@ Coding by:Wormer
 
 """
 
-#imports
+#standart library imports
 
 import tkinter as tk,tkinter.messagebox
 from tkinter import filedialog as fd
 import os,sys
 import socket
-if os.name == "posix":
-	sys.path.insert(1,"/modules/requests")
-	sys.path.insert(1,"/modules/bs4")
-elif os.name == "nt":
-	sys.path.insert(1,"\\modules\\requests")
-	sys.path.insert(1,"\\modules\\bs4")
-import requests
-from bs4 import BeautifulSoup
+
+#third party library imports
+while True:
+    try:
+        import requests
+        from bs4 import BeautifulSoup
+    except ImportError:
+        os.system("pip install bs4")
+        os.system("pip install requests")
+    else:
+        break
 
 def linuxorwin(*args):
     git = os.path.join(os.getcwd(),*args)
