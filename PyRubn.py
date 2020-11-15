@@ -7,20 +7,23 @@ Coding by:Wormer
 
 """
 
-#imports
+#standart library imports
 
 import tkinter as tk,tkinter.messagebox
 from tkinter import filedialog as fd
 import os,sys
 import socket
-if os.name == "posix":
-	sys.path.insert(1,"/modules/requests")
-	sys.path.insert(1,"/modules/bs4")
-elif os.name == "nt":
-	sys.path.insert(1,"\\modules\\requests")
-	sys.path.insert(1,"\\modules\\bs4")
-import requests
-from bs4 import BeautifulSoup
+
+#third party library imports
+while True:
+    try:
+        import requests
+        from bs4 import BeautifulSoup
+    except ImportError:
+        os.system("pip install bs4")
+        os.system("pip install requests")
+    else:
+        break
 
 def linuxorwin(*args):
     git = os.path.join(os.getcwd(),*args)
@@ -213,6 +216,19 @@ def PyRubn():
         def back():
             root.destroy()
             PyRubn()
+        def çağır():
+            file = fd.askopenfilename(title="Select file",filetypes=(("Python files","*.py"),("Ruby","*.rb")))
+            print(file)
+            
+            if os.path.exists(os.path.join(os.getcwd(), "Executable", "Python")):
+                w = os.getcwd()
+                linuxorwin("Executable","Ruby")
+                os.system(f"ocra {file}")
+                tkinter.messagebox.showinfo("Ruby => exe","ruby script convert exe")
+                os.chdir(w)
+                print(os.getcwd())
+            else:
+                print("Klasör yok")
         def settings():
             pass
         sql.destroy()
@@ -220,6 +236,10 @@ def PyRubn():
         root.title("Ruby => exe")
         root.resizable(False,False)
         root.geometry("300x300")
+        
+        if os.name == "posix":tkinter.messagebox.showerror("Operating sysytem error","your operating sysytem is linux,ocra is using windows"),back()
+
+        button = tk.Button(root,text="Select file",font="Verdana 14",bg="Green",command=çağır).place(x=20,y=20)
 
         new = tk.Menu(root)
 
@@ -349,8 +369,7 @@ def PyRubn():
 
         if os.name == "posix":
             tkinter.messagebox.showerror("Permission Error","İf you using Unix/Linux super user do password on terminal.")
-        else:
-            pass
+
         alpler = tk.Menu(pencere)
 
         alpler.add_command(label="Anasayfa",font="Times 12",foreground="BLACK",command=ekran)
