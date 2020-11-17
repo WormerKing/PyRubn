@@ -14,8 +14,8 @@ from tkinter import filedialog as fd
 import os,sys
 import socket
 
-
 #third party library imports
+
 while True:
     try:
         import requests
@@ -262,8 +262,8 @@ def PyRubn():
             if gems == "Ruby gem name" or gems == "":
                 tkinter.messagebox.showerror("Error","Gem name error")
             else:    
-                new = open("Ruby.rb","w")
-                new.write(f"a = File.open('Çıktı.txt','w')\nbegin\n\trequire '{gems}'\nrescue LoadError\n\ta.write('False')\nelse\n\ta.write('True')\nend")
+                new = open("Ruby.rb","w",encoding="utf-8")
+                new.write(f"a = File.open('Çıktı.txt','w:UTF-8')\nbegin\n\trequire '{gems}'\nrescue LoadError\n\ta.write('False')\nelse\n\ta.write('True')\nend")
                 new.close()
                 try:
                     os.system("irb Ruby.rb")
@@ -282,7 +282,7 @@ def PyRubn():
                                         os.system(f"sudo gem install {gems}")
                                         
                                         new = open("Ruby.rb","w")
-                                        new.write(f"a = File.open('Çıktı.txt','w')\nbegin\n\trequire '{gems}'\nrescue LoadError\n\ta.write('False')\nelse\n\ta.write('True')\nend")
+                                        new.write(f"a = File.open('Çıktı.txt','w:UTF-8')\nbegin\n\trequire '{gems}'\nrescue LoadError\n\ta.write('False')\nelse\n\ta.write('True')\nend")
                                         new.close()
                                         try:
                                             os.system("irb Ruby.rb")
@@ -304,7 +304,7 @@ def PyRubn():
                                         os.system(f"gem install {gems}")
                                         
                                         new = open("Ruby.rb","w")
-                                        new.write(f"a = File.open('Çıktı.txt','w')\nbegin\n\trequire '{gems}'\nrescue LoadError\n\ta.write('False')\nelse\n\ta.write('True')\nend")
+                                        new.write(f"a = File.open('Çıktı.txt','w:UTF-8')\nbegin\n\trequire '{gems}'\nrescue LoadError\n\ta.write('False')\nelse\n\ta.write('True')\nend")
                                         new.close()
                                         try:
                                             os.system("irb Ruby.rb")
@@ -322,8 +322,7 @@ def PyRubn():
                                                             tkinter.messagebox.showinfo("Gem not install","Ruby gem is not installed")
                                                             os.remove("Çıktı.txt")
                                                             os.remove("Ruby.rb")
-                                                        else:
-                                                            pass                
+              
         def Rbinfo():
             slime = entry1.get()
             if slime == "Ruby gem name" or slime == "":
