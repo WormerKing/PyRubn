@@ -14,23 +14,7 @@ from tkinter import filedialog as fd
 import os,sys
 import socket
 
-<<<<<<< HEAD
-if os.name == "posix":
-    sys.path.insert(0,"/modules/requests")
-    import requests
 
-    sys.path.insert(0,"/modules/bs4")
-    from bs4 import BeautifulSoup
-
-elif os.name == "nt":
-    sys.path.insert(0,"\\modules\\requests")
-    import requests
-
-    sys.path.insert(0,"\\modules\\bs4")
-    from bs4 import BeautifulSoup
-
-
-=======
 #third party library imports
 while True:
     try:
@@ -41,7 +25,7 @@ while True:
         os.system("pip install requests")
     else:
         break
->>>>>>> 9a6d4af64f99ce1d08406764820f5aaea8a2dfd3
+
 
 def linuxorwin(*args):
     git = os.path.join(os.getcwd(),*args)
