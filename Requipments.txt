@@ -3,8 +3,9 @@ Pip(Python),RubyGem(Ruby)
 
 Python Library:
 -tkinter
--requests
 -bs4
+-requests
 
 Exe:
 -pyinstaller
+-ocra(for windows)
