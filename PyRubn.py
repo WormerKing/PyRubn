@@ -274,8 +274,7 @@ def PyRubn():
                             for i in hi.readlines():
                                 if i == "True":
                                     tkinter.messagebox.showinfo("Gem is was downloaded",f"{gems} is was download")
-                                    os.remove("Ruby.rb")
-                                    os.remove("Output.txt")
+
                                 else:
                                     if os.name == "posix":
                                         os.system(f"sudo gem install {gems}")
@@ -318,9 +317,10 @@ def PyRubn():
 
                                                         elif l == "False":
                                                             tkinter.messagebox.showinfo("Gem not install","Ruby gem is not installed")
+                        os.remove("Ruby.rb")
+                        os.remove("Output.txt")
 
-                                                os.remove("Output.txt")
-                                                os.remove("Ruby.rb")
+
         def Rbinfo():
             slime = entry1.get()
             if slime == "Ruby gem name" or slime == "":
@@ -464,6 +464,7 @@ def PyRubn():
         pool.mainloop()
     def comment():
         def back():
+            dosya.close()
             os.remove("Send.txt")
             loot.destroy()
             PyRubn()
