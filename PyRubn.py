@@ -26,18 +26,17 @@ while True:
     else:
         break
 
-
 def linuxorwin(*args):
     git = os.path.join(os.getcwd(),*args)
     os.chdir(git)
 
 def PyRubn():
-
     def PythonPackage():
-        sql.destroy()
         def Anasayfa():
             pencere.destroy()
             PyRubn()
+
+        sql.destroy()
         def remove():
             data1 = değer1.get()
             try:
@@ -475,12 +474,14 @@ def PyRubn():
                 s.connect(("localhost",8131))
             except ConnectionRefusedError:
                 tkinter.messagebox.showerror("Connecting lost","Network not connect")
+                dosya.close()
                 os.remove("Send.txt")
                 back()
             else:
                 for i in dosya.readlines():
                     s.sendall(bytes(i,"utf-8"))
                 tkinter.messagebox.showinfo("Message sending","This message is sending")
+                dosya.close()
                 os.remove("Send.txt")
                 back()
 
